@@ -3,9 +3,14 @@
   "title": "Федресурс",
   "type": "object",
   "required": [
+    "name",
     "result"
   ],
   "properties": {
+    "name": {
+      "description": "Название ресурса",
+      "type": "string"
+    },
     "result": {
       "description": "История банкротства и правонарушений по участнику сделки",
       "type": "object",

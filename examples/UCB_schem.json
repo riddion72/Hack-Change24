@@ -3,9 +3,14 @@
   "title": "Данные из БКИ Объединенное кредитное бюро",
   "type": "object",
   "required": [
+    "name",
     "loaner"
   ],
   "properties": {
+    "name": {
+      "description": "Название ресурса",
+      "type": "string"
+    },
     "loaner": {
       "type": "object",
       "required": [

@@ -2,6 +2,7 @@
   "name": "test",
   "studentData": {
     "age": 19,
+    "gender" : "M",
     "residenceRegion" : "60",
     "averageScore" : 4.5,
     "profession" : "Инженер",

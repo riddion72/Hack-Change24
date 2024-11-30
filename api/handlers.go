@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 
+	mp "main/internal/mapping"
 	lr "main/internal/schem_reader"
 )
 
@@ -38,7 +39,9 @@ func getDBlist(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 		_, err = w.Write(mlS)
 		if err != nil {
-			log.Fatal(err)
+			w.WriteHeader(http.StatusBadRequest)
+			fmt.Fprintf(w, "Error writing file: %v\n", err)
+			log.Printf("Error writing file: %v\n", err)
 		}
 	}
 
@@ -56,12 +59,14 @@ func getMLlist(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 		_, err = w.Write(mlS)
 		if err != nil {
-			log.Fatal(err)
+			w.WriteHeader(http.StatusBadRequest)
+			fmt.Fprintf(w, "Error writing file: %v\n", err)
+			log.Printf("Error writing file: %v\n", err)
 		}
 	}
 }
 
-func createPattern(w http.ResponseWriter, r *http.Request) {
+func createMapping(w http.ResponseWriter, r *http.Request) {
 	body, err := io.ReadAll(r.Body)
 	if err != nil {
 		log.Printf("Error reading request body: %v\n", err)
@@ -109,22 +114,27 @@ func performRequest(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-	path := fmt.Sprintf("examples/%s.json", result["name"])
-	patternFile, err := os.Open(path)
+	path := fmt.Sprintf("examples/%s.json", result["type"])
+	mappingFile, err := os.Open(path)
 	if err != nil {
 		log.Printf("Ошибка при открытии файла: %v", err)
 		w.WriteHeader(http.StatusNotFound)
 		return
 	}
-	defer patternFile.Close()
-	patternBody, err := lr.ReadJSONFromFile(patternFile.Name())
-	var pattern map[string]interface{}
-	err = json.Unmarshal(patternBody, &pattern)
+	defer mappingFile.Close()
+	mappingJson, err := lr.ReadJSONFromFile(mappingFile.Name())
+	var mappingMap map[string]interface{}
+	err = json.Unmarshal(mappingJson, &mappingMap)
 	if err != nil {
 		log.Printf("ошибка при разборе JSON: %v", err)
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-	log.Print(pattern)
+	log.Print(mappingMap)
+	request, err := mp.CreateRequest(mappingMap)
+	_, err = w.Write(request)
+	if err != nil {
+		log.Fatal(err)
+	}
 	w.WriteHeader(http.StatusOK)
 }

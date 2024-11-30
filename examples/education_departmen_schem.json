@@ -2,7 +2,15 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Ресурс  комитета по образованию",
   "type": "object",
+  "required": [
+    "name",
+    "personData"
+  ],
   "properties": {
+    "name": {
+      "description" : "Название ресурса",
+      "type": "string"
+    },
     "personData": {
       "description" : "Описание данных по участнику сделки",
       "type": "object",

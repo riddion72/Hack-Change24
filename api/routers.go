@@ -59,7 +59,7 @@ var routes = Routes{
 		"CreatePattern",
 		"POST",
 		"/create_pattern",
-		createPattern,
+		createMapping,
 	},
 
 	Route{

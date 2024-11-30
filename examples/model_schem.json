@@ -3,11 +3,12 @@
   "title": "Данные для модели",
   "type": "object",
   "required": [
+    "name",
     "studentData",
     "parentsData"
   ],
   "properties": {
-    "mane": {
+    "name": {
       "description": "название модели",
       "type": "string"
     },
@@ -16,6 +17,7 @@
       "type": "object",
       "required": [
         "age",
+        "gender",
         "residenceRegion",
         "averageScore",
         "profession",
@@ -26,6 +28,10 @@
         "age": {
           "description": "Возраст студента",
           "type": "integer"
+        },
+        "gender": {
+          "description": "Пол студента (M/F)",
+          "type": "string"
         },
         "residenceRegion": {
           "description": "Код региона проживания студента",

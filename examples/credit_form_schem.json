@@ -3,11 +3,17 @@
   "title": "Анкета на получение образовательного кредита",
   "type": "object",
   "required": [
+    "name",
+    "type",
     "applicationInfo",
     "personInfo"
   ],
   "properties": {
     "name": {
+      "description": "Название ресурсаа",
+      "type": "string"
+    },
+    "type": {
       "description": "Название ML",
       "type": "string"
     },
