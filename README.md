@@ -63,12 +63,12 @@ Hack-Change24-main
 ## Иллюстрации
 
 ### Схема работы программы:
-![Схема работы программы](Archive/schema.png)
+![Схема работы программы](schema.png)
 
 ### Интерфейс программы:
-![Интерфейс 1](Archive/interface1.png)
-![Интерфейс 2](Archive/interface2.png)
-![Интерфейс 3](Archive/interface3.png)
+![Интерфейс 1](interface1.png)
+![Интерфейс 2](interface2.png)
+![Интерфейс 3](interface3.png)
 
 ---
 
