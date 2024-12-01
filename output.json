@@ -1,0 +1,38 @@
+{
+    "studentData": {
+        "age": {
+            "key": "loaner.firstName",
+            "fileName": "объединенное_кредитное_бюро_test.json"
+        },
+        "residenceRegion": {
+            "key": "loaner.firstName",
+            "fileName": "объединенное_кредитное_бюро.json"
+        },
+        "averageScore": {
+            "key": "personData.firstName",
+            "fileName": "ресурс_ комитета_по_образованию.json"
+        },
+        "profession": {
+            "key": "loaner.gender",
+            "fileName": "объединенное_кредитное_бюро_test.json"
+        },
+        "administrativeOffense": {
+            "key": "personData.firstName",
+            "fileName": "ресурс_ комитета_по_образованию.json"
+        },
+        "overdueLoanStudent": {
+            "key": "loaner.firstName",
+            "fileName": "объединенное_кредитное_бюро.json"
+        }
+    },
+    "parentsData": {
+        "overdueLoanParents": {
+            "key": "personData.schoolInfo.schoolEndDate",
+            "fileName": "ресурс_ комитета_по_образованию.json"
+        },
+        "parentsBankruptcy": {
+            "key": "personData.educationStatus",
+            "fileName": "ресурс_ комитета_по_образованию.json"
+        }
+    }
+}

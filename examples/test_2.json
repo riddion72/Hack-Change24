@@ -1,13 +1,13 @@
 {
   "name": "test_2",
   "studentData": {
-    "age": "19",
-    "gender" : "M",
-    "residenceRegion" : "60",
-    "averageScore" : "4.5",
-    "profession" : "Инженер",
-    "administrativeOffense" : "1",
-    "overdueLoanStudent" : "56.8"
+    "age": "credit_form_2 birthDate calcAge",
+    "gender" : "credit_form_2 gender insert",
+    "residenceRegion" : "credit_form_2 addresses askAI какой номер региона проживания, ответь только числом",
+    "averageScore" : "education_departmen subjects average",
+    "profession" : "education_departmen educationSpecialty askAI какя профессия будет у человека закончившего этот факультет, ответь одним словом",
+    "administrativeOffense" : "fedresource offesnseHistory calcItems",
+    "overdueLoanStudent" : "UCB accounts askAI какой % месяцев с просрочкой, напиши только число"
   },
   "parentsData": {
     "overdueLoanParents" : "23.8",

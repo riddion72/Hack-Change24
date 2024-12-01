@@ -97,7 +97,7 @@ func createMapping(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.WriteHeader(http.StatusOK)
-	fmt.Printf("Received: %v\n", result)
+	// fmt.Printf("Received: %v\n", result)
 }
 
 func performRequest(w http.ResponseWriter, r *http.Request) {
@@ -130,7 +130,7 @@ func performRequest(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-	log.Print(mappingMap)
+	// log.Print(mappingMap)
 	request, err := mp.CreateRequest(mappingMap)
 	_, err = w.Write(request)
 	if err != nil {

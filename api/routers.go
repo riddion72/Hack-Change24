@@ -56,9 +56,9 @@ var routes = Routes{
 	},
 
 	Route{
-		"CreatePattern",
+		"CreateMapping",
 		"POST",
-		"/create_pattern",
+		"/create_mapping",
 		createMapping,
 	},
 
