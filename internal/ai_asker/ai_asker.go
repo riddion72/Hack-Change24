@@ -6,13 +6,12 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 
 	"github.com/google/uuid"
 )
 
-var AccessToken string
+// var AccessToken string
 
 // Функция для создания HTTP-запроса
 func createRequest(method, url string, payload []byte, headers map[string]string) (*http.Request, error) {
@@ -126,7 +125,7 @@ func getContent(choice interface{}) (string, error) {
 }
 
 // Функция для получения токена доступа
-func getAccessToken(authorizationKey string) (string, error) {
+func GetAccessToken(authorizationKey string) (string, error) {
 	rqUID := uuid.New().String()
 	url := "https://ngw.devices.sberbank.ru:9443/api/v2/oauth"
 	payload := "scope=GIGACHAT_API_PERS"
@@ -200,29 +199,29 @@ func SendNeuralNetRequest(accessToken string, promt string) (string, error) {
 	return extractNeuralNetResponse(body)
 }
 
-func Initialization() error {
-	authorizationKey := "OGYwMTljNzYtYzEyMy00MjE4LWJmY2UtZTY2ZWE1ZGRlM2E4OjQ4ZTBkOTgwLTlhNGUtNDFmOC1hNGNlLTJkMmU2ZGQ1MjQ1Zg=="
+// func Initialization() error {
+// 	authorizationKey := "OGYwMTljNzYtYzEyMy00MjE4LWJmY2UtZTY2ZWE1ZGRlM2E4OjQ4ZTBkOTgwLTlhNGUtNDFmOC1hNGNlLTJkMmU2ZGQ1MjQ1Zg=="
 
-	accessToken, err := getAccessToken(authorizationKey)
-	if err != nil {
-		log.Println("Error getting access token:", err)
-		return err
-	}
-	log.Println("Access Token:", accessToken)
+// 	accessToken, err := getAccessToken(authorizationKey)
+// 	if err != nil {
+// 		log.Println("Error getting access token:", err)
+// 		return err
+// 	}
+// 	log.Println("Access Token:", accessToken)
 
-	return nil
+// 	return nil
 
-	// neuralNetResponse, err := sendNeuralNetRequest(accessToken, "сколько лет человеку родившимуся 11.11.87 - ответь одной цыфрой")
-	// if err != nil {
-	// 	fmt.Println("Error sending neural net request:", err)
-	// 	return
-	// }
+// neuralNetResponse, err := sendNeuralNetRequest(accessToken, "сколько лет человеку родившимуся 11.11.87 - ответь одной цыфрой")
+// if err != nil {
+// 	fmt.Println("Error sending neural net request:", err)
+// 	return
+// }
 
-	// fmt.Println("Neural Net Response Content:", neuralNetResponse)
-	// neuralNetResponse, err = sendNeuralNetRequest(accessToken, "посчитай среднее арифметическое 4, 5, 2, 4, 5 - ответь одной цыфрой")
-	// if err != nil {
-	// 	fmt.Println("Error sending neural net request:", err)
-	// 	return
-	// }
-	// fmt.Println("Neural Net Response Content:", neuralNetResponse)
-}
+// fmt.Println("Neural Net Response Content:", neuralNetResponse)
+// neuralNetResponse, err = sendNeuralNetRequest(accessToken, "посчитай среднее арифметическое 4, 5, 2, 4, 5 - ответь одной цыфрой")
+// if err != nil {
+// 	fmt.Println("Error sending neural net request:", err)
+// 	return
+// }
+// fmt.Println("Neural Net Response Content:", neuralNetResponse)
+// }

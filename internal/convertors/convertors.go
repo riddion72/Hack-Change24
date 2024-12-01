@@ -96,21 +96,25 @@ func Average(input string) string {
 }
 
 func CalcItems(input string) string {
-	// input = "\"subjects\" : " + input
-	// var data map[string]interface{}
-	// err := json.Unmarshal([]byte(input), &data)
-	// if err != nil {
-	// 	return "10"
-	// }
-	// log.Println(input)
+
 	return "0"
 }
 
 func AskAI(input string) string {
-	ans, err := ais.SendNeuralNetRequest(ais.AccessToken, input)
+
+	authorizationKey := "OGYwMTljNzYtYzEyMy00MjE4LWJmY2UtZTY2ZWE1ZGRlM2E4OmVmNjg4Zjk0LWE5ZGYtNDdkMS1hYzI2LTI5NWQyOGRlMzZlNA=="
+
+	accessToken, err := ais.GetAccessToken(authorizationKey)
+	if err != nil {
+		log.Println("Error getting access token:", err)
+		return "I am Groot"
+	}
+	// log.Println("Access Token:", accessToken)
+
+	ans, err := ais.SendNeuralNetRequest(accessToken, input)
 	if err != nil {
 		log.Printf("Ошибка при запросе k AI: %v", err)
-		return "I am Grooot"
+		return "I am Groooot"
 	}
 
 	return ans

@@ -7,7 +7,7 @@
     "averageScore" : "education_departmen subjects average",
     "profession" : "education_departmen educationSpecialty askAI какя профессия будет у человека закончившего этот факультет, ответь одним словом",
     "administrativeOffense" : "fedresource offesnseHistory calcItems",
-    "overdueLoanStudent" : "UCB accounts askAI какой % месяцев с просрочкой, напиши только число"
+    "overdueLoanStudent" : "UCB accounts askAI какой % месяцев с просрочкой, ответь только числом"
   },
   "parentsData": {
     "overdueLoanParents" : "23.8",

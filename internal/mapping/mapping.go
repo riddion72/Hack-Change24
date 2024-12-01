@@ -12,12 +12,12 @@ import (
 	conv "main/internal/convertors"
 )
 
-var dbList = []string{
-	"credit_form_schem",
-	"education_departmen_schem",
-	"fedresource_schem",
-	"UCB_schem",
-}
+// var dbList = []string{
+// 	"credit_form_schem",
+// 	"education_departmen_schem",
+// 	"fedresource_schem",
+// 	"UCB_schem",
+// }
 
 func CreateRequest(mappingMap map[string]interface{}) ([]byte, error) {
 
@@ -73,8 +73,12 @@ func mapping(instruction string) (string, string) {
 	if err != nil {
 		return "", ""
 	}
+	var promt string
+	for i := 3; i < len(parts); i++ {
+		promt += " " + parts[i]
+	}
 
-	return instruction, applyFunction(parts[2], extractValue(byteValue, parts[1]))
+	return instruction, applyFunction(parts[2], extractValue(byteValue, parts[1]), promt)
 }
 
 func extractValue(dbAnswer []byte, requiredFieldName string) string {
@@ -93,7 +97,7 @@ func findValues(value interface{}, requiredFieldName string) string {
 	case map[string]interface{}:
 		for key, val := range v {
 			if key == requiredFieldName {
-				requiredFieldValue += fmt.Sprintf("%T", val)
+				requiredFieldValue += fmt.Sprintf("%v", val)
 			}
 			if _, ok := val.(map[string]interface{}); ok {
 				requiredFieldValue += findValues(val, requiredFieldName)
@@ -107,7 +111,7 @@ func findValues(value interface{}, requiredFieldName string) string {
 	return requiredFieldValue
 }
 
-func applyFunction(funcName string, funcArgs string) string {
+func applyFunction(funcName string, funcArgs string, promt string) string {
 	switch funcName {
 	case "calcAge":
 		return conv.CalculateAge(funcArgs)
@@ -116,7 +120,7 @@ func applyFunction(funcName string, funcArgs string) string {
 	case "calcItems":
 		return conv.CalcItems(funcArgs)
 	case "askAI":
-		return conv.AskAI(funcArgs)
+		return conv.AskAI(funcArgs + " " + promt)
 	case "insert":
 		return conv.Insert(funcArgs)
 	default:

@@ -13,7 +13,7 @@ import (
 )
 
 var mlList = []string{
-	"examples/model.json",
+	"examples/model_schem.json",
 }
 
 var dbList = []string{
