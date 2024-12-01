@@ -53,10 +53,10 @@ Hack-Change24-main
 
 ## Команда и роли
 
-- **[Имя 1]** — Team Lead, разработка backend.
-- **[Имя 2]** — Frontend-разработчик.
-- **[Имя 3]** — UX/UI дизайнер.
-- **[Имя 4]** — Data Scientist, обработка данных.
+- **Денис Буркут** — back-end (Go), Postman
+- **Владимир Семкив** — front-end (Python, React JS)
+- **Дмитрий Храмцов** — дизайн интерфейсов (Figma), back-end (Go)
+- **Константин Попов** — back-end (Go)
 
 ---
 
