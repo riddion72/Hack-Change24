@@ -7,6 +7,8 @@ import (
 	"strings"
 	"time"
 	"unicode"
+
+	ais "main/internal/ai_asker"
 )
 
 func calculate(birthDate time.Time) int {
@@ -94,18 +96,24 @@ func Average(input string) string {
 }
 
 func CalcItems(input string) string {
-	input = "\"subjects\" : " + input
+	// input = "\"subjects\" : " + input
 	// var data map[string]interface{}
 	// err := json.Unmarshal([]byte(input), &data)
 	// if err != nil {
 	// 	return "10"
 	// }
-	log.Println(input)
+	// log.Println(input)
 	return "0"
 }
 
 func AskAI(input string) string {
-	return "I am Grooot"
+	ans, err := ais.SendNeuralNetRequest(ais.AccessToken, input)
+	if err != nil {
+		log.Printf("Ошибка при запросе k AI: %v", err)
+		return "I am Grooot"
+	}
+
+	return ans
 }
 
 func Insert(input string) string {
